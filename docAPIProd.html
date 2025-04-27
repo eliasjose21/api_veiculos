@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentação da API - Veículos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    .endpoint {
+      margin-bottom: 20px;
+    }
+    .method {
+      font-weight: bold;
+      color: #007BFF;
+    }
+    .path {
+      font-weight: bold;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h1>Documentação da API REST - Veículos</h1>
+
+  <div class="endpoint">
+    <h2>1. Listar Todos os Veículos</h2>
+    <p class="method">Método: GET</p>
+    <p class="path">Rota: <code>/veiculos</code></p>
+    <pre>
+Exemplo de resposta:
+[ 
+  { 
+    "id": 1, 
+    "marca": "Ford", 
+    "modelo": "Fiesta", 
+    "ano": 2015, 
+    "preco": 30000.00 
+  } 
+]
+    </pre>
+  </div>
+
+  <div class="endpoint">
+    <h2>2. Listar um Veículo Específico</h2>
+    <p class="method">Método: GET</p>
+    <p class="path">Rota: <code>/veiculos/&lt;int:veiculo_id&gt;</code></p>
+    <pre>
+Exemplo de resposta:
+{ 
+  "id": 1, 
+  "marca": "Ford", 
+  "modelo": "Fiesta", 
+  "ano": 2015, 
+  "preco": 30000.00 
+}
+    </pre>
+  </div>
+
+  <div class="endpoint">
+    <h2>3. Criar um Novo Veículo</h2>
+    <p class="method">Método: POST</p>
+    <p class="path">Rota: <code>/veiculos</code></p>
+    <pre>
+Corpo da requisição (JSON):
+{
+  "marca": "Toyota",
+  "modelo": "Corolla",
+  "ano": 2020,
+  "preco": 85000.00
+}
+
+Resposta:
+{
+  "id": 2,
+  "marca": "Toyota",
+  "modelo": "Corolla",
+  "ano": 2020,
+  "preco": 85000.00
+}
+    </pre>
+  </div>
+
+  <div class="endpoint">
+    <h2>4. Atualizar um Veículo</h2>
+    <p class="method">Método: PUT</p>
+    <p class="path">Rota: <code>/veiculos/&lt;int:veiculo_id&gt;</code></p>
+    <pre>
+Corpo da requisição (JSON):
+{
+  "marca": "Honda",
+  "modelo": "Civic",
+  "ano": 2019,
+  "preco": 90000.00
+}
+
+Resposta:
+{
+  "id": 1,
+  "marca": "Honda",
+  "modelo": "Civic",
+  "ano": 2019,
+  "preco": 90000.00
+}
+    </pre>
+  </div>
+
+  <div class="endpoint">
+    <h2>5. Deletar um Veículo</h2>
+    <p class="method">Método: DELETE</p>
+    <p class="path">Rota: <code>/veiculos/&lt;int:veiculo_id&gt;</code></p>
+    <pre>
+Resposta:
+{
+  "mensagem": "Veículo excluído com sucesso"
+}
+    </pre>
+  </div>
+
+  <!-- NOVO: Interagir com a API via index.html -->
+  <div class="endpoint">
+    <h2>6. Criar Veículos e Listar com index.html</h2>
+    <p class="method">Método: GET e POST (via index.html)</p>
+    <p class="path">Interação: Pelo formulário de cadastro de veículos na página <code>index.html</code></p>
+    <pre>
+Para **listar os veículos** ou **adicionar um novo** via interface, use a página <code>index.html</code>.
+
+- **Listar todos os veículos**: A página carrega a lista automaticamente quando você a acessa.
+- **Cadastrar novo veículo**: Preencha o formulário e clique em "Adicionar Veículo" para enviar via API (POST). A lista será atualizada imediatamente com o novo veículo.
+
+Exemplo de como adicionar um novo veículo:
+{
+  "marca": "Chevrolet",
+  "modelo": "Onix",
+  "ano": 2021,
+  "preco": 40000.00
+}
+    </pre>
+  </div>
+
+</body>
+</html>
